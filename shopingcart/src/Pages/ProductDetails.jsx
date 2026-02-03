@@ -5,9 +5,13 @@ import { useParams , Link } from 'react-router-dom'
 import { initialProducts } from '../data/product'
 import { useCart } from '../Context/CartContext'
 
+// icons import 
 import { ShoppingCart, ChevronLeft, Tag, Zap } from "lucide-react";
+
 const ProductDetails = () => {
+
   // console.log("useparams in product details page", useParams())
+  
   const { id } = useParams();
   const [product, setproduct] = useState();
 
@@ -35,7 +39,7 @@ const ProductDetails = () => {
               className="w-[400px] h-[400px] object-cover rounded-2xl shadow-2xl shadow-gray-950/50 border-4 border-gray-800"
             />
           </div>
-
+    
           <div className="flex flex-col justify-between">
             <div>
               <h1 className="text-4xl font-extrabold text-white mb-4 leading-tight tracking-tighter">
