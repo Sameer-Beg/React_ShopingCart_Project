@@ -1,8 +1,13 @@
 import React from 'react'
 import { ShoppingCart } from "lucide-react";
 import { Link } from 'react-router-dom'
+
+import { useCart } from '../Context/CartContext';
+
 const ProducttCartt = ({ product }) => {
-   
+
+   const {addtocart} = useCart();
+
     return (
         <>
             {/* main div  */}
@@ -43,7 +48,7 @@ const ProducttCartt = ({ product }) => {
                     </div>
 
                     {/* here we are creating add to cart button  */}
-                    <button className="max-auto w-full py-3 bg-orange-600 text-white font-bold rounded-full shadow-lg shadow-orange-800/50 cursor-pointer hover:bg-orange-700 transition duration-300 flex items-center justify-center space-x-2 transform hover:ring-4 hover:ring-pink-600/50 uppercase tracking-wider">
+                    <button onClick={()=>addtocart(product)} className="max-auto w-full py-3 bg-orange-600 text-white font-bold rounded-full shadow-lg shadow-orange-800/50 cursor-pointer hover:bg-orange-700 transition duration-300 flex items-center justify-center space-x-2 transform hover:ring-4 hover:ring-pink-600/50 uppercase tracking-wider">
                         <ShoppingCart className="w-5 h-5" />
                         <span>Add to Cart</span>
                     </button>

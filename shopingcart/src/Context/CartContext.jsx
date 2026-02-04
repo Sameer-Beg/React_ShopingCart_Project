@@ -58,6 +58,7 @@ export const Cartprovider = ({ children }) => {
   const carttotal = useMemo(() => cart.reduce((total, item) => total + item.price * item.quantity, 0),
     [cart]
   )
+  console.log("my cart" , cart)
   return (
     <div>
       <cartContext.Provider value={{ products , cart, addtocart , clearcart , carttotal, cartCount, removefromcart  }}>
