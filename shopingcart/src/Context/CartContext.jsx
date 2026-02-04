@@ -1,3 +1,4 @@
+import { ToastContainer, toast , Bounce } from 'react-toastify';
 import { createContext, useState } from "react";
 import { useMemo } from "react";
 
@@ -21,6 +22,17 @@ export const Cartprovider = ({ children }) => {
 
   // add items into the cart 
   const addtocart = (product) => {
+    toast.success('🦄 Item Added To Cart !', {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
     setcart((prevCart) => {
       const exixtingitem = prevCart.find(item => item.id === product.id);
       if (exixtingitem) {
@@ -33,6 +45,17 @@ export const Cartprovider = ({ children }) => {
 
   // remove items 
   const removefromcart = (productid, removeall) => {
+    toast.success('🦄 Item Remove from Cart !', {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
     setcart((prevCart) => {
       const exixtingitem = prevCart.find(item => item.id === productid);
       if (!exixtingitem) return prevCart;
@@ -58,10 +81,10 @@ export const Cartprovider = ({ children }) => {
   const carttotal = useMemo(() => cart.reduce((total, item) => total + item.price * item.quantity, 0),
     [cart]
   )
-  console.log("my cart" , cart)
+  console.log("my cart", cart)
   return (
     <div>
-      <cartContext.Provider value={{ products , cart, addtocart , clearcart , carttotal, cartCount, removefromcart  }}>
+      <cartContext.Provider value={{ products, cart, addtocart, clearcart, carttotal, cartCount, removefromcart }}>
         {children}
       </cartContext.Provider>
     </div>

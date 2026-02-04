@@ -31,3 +31,5 @@ out
 .build
 coverage
 .cache  
+App.css
+

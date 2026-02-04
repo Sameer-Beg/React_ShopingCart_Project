@@ -11,12 +11,31 @@ import Footer from './Components/Footer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 
+// toastyfiy
+import { ToastContainer, toast, Bounce } from 'react-toastify';
+
 const App = () => {
   const name = "sameer beg"
   return (
     <>
       {/* router  */}
       <Router>
+
+        {/* // toast container  */}
+        <ToastContainer
+          position="top-right"
+          autoClose={1500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          transition={Bounce}
+        />
+
         {/* background color and font style  */}
         <div className='min-h-screen bg-gray-900 font-serif'>
           {/* navbar  */}
